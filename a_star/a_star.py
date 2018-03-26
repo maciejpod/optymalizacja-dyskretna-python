@@ -81,8 +81,8 @@ def main(argv):
 def input_validation(nodes_cnt, start_node, end_node):
     if start_node > nodes_cnt - 1 \
             or end_node > nodes_cnt - 1:
-        print('Wezel poczatkowy lub koncowy nie '
-              'moze byc wiekszy lub rowny liczbie wezlow')
+        print('Wybrany wezel poczatkowy lub koncowny nie istnieje.'
+              ' Dostepne wezly: 0, 1, ...' + nodes_cnt - 1)
         sys.exit(2)
     elif nodes_cnt < 1:
         print('Liczba wezlow musi byc wieksza niz 1')
