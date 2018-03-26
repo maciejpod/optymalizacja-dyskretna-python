@@ -56,7 +56,7 @@ def main(argv):
 
     items = create_items()
 
-    result = calculate(items, 30)
+    result = calculate(items, limit)
 
     print_result(result)
 

@@ -82,7 +82,7 @@ def solve_problem(nodes_cnt):
     distances = calculate_distances(graph)
     path = calculate_path(distances)
 
-    print('Path: ' + path)
+    print('Path: ' + str(path))
 
     draw_graph(graph, path)
 
@@ -95,21 +95,21 @@ def input_validation(nodes_cnt):
 
 def main(argv):
     nodes_cnt = 0
-
+    hint = 'ant_colony.py -n <nodes_number>'
     try:
-        opts, args = getopt.getopt(argv, "hi:o:",
+        opts, args = getopt.getopt(argv, "hn:",
                                    ["nodes_number="])
         if len(opts) == 0:
-            print 'ant_colony.py -nn <nodes_number>'
+            print(hint)
             sys.exit(2)
     except getopt.GetoptError:
-        print 'ant_colony.py -nn <nodes_number>'
+        print(hint)
         sys.exit(2)
     for opt, arg in opts:
         if opt in ('-h', '--help'):
-            print 'ant_colony.py -nn <nodes_number>'
+            print(hint)
             sys.exit()
-        elif opt in ("-nn", "--nodes_number"):
+        elif opt in ("-n", "--nodes_number"):
             nodes_cnt = int(arg)
     input_validation(nodes_cnt)
     solve_problem(nodes_cnt)

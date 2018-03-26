@@ -48,29 +48,31 @@ def main(argv):
     nodes_cnt = 0
     start_node = 0
     end_node = 0
+    hint = 'a_star.py -n <nodes_number> ' \
+           '-s <start_node> -e <end_node>'
 
     try:
-        opts, args = getopt.getopt(argv, "hi:o:",
+        opts, args = getopt.getopt(argv, "h:n:s:e:",
                                    ["nodes_number=", "start_node=",
                                     "end_node="])
         if len(opts) == 0:
-            print 'a_star.py -nn <nodes_number> ' \
-                  '-sn <start_node> -en <end_node>'
+            print(hint)
             sys.exit(2)
     except getopt.GetoptError:
-        print 'a_star.py -nn <nodes_number> -sn ' \
-              '<start_node> -en <end_node>'
+        print(hint)
         sys.exit(2)
     for opt, arg in opts:
         if opt in ('-h', '--help'):
-            print 'a_star.py -nn <nodes_number> -sn ' \
-                  '<start_node> -en <end_node>'
+            print(hint)
             sys.exit()
-        elif opt in ("-nn", "--nodes_number"):
+        elif opt in ("-n", "--nodes_number"):
+            print(arg)
             nodes_cnt = int(arg)
-        elif opt in ("-sn", "--start_node"):
+        elif opt in ("-s", "--start_node"):
+            print(arg)
             start_node = int(arg)
-        elif opt in ("-en", "--end_node"):
+        elif opt in ("-e", "--end_node"):
+            print(arg)
             end_node = int(arg)
     input_validation(nodes_cnt, start_node, end_node)
     solve_problem(nodes_cnt, start_node, end_node)

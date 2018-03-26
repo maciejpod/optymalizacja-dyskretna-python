@@ -69,20 +69,20 @@ def input_validation(nodes_cnt):
 
 def main(argv):
     nodes_cnt = 0
-
+    hint = 'kruskal.py -n <nodes_number>'
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["nodes_number="])
+        opts, args = getopt.getopt(argv, "h:n:", ["nodes_number="])
         if len(opts) == 0:
-            print 'kruskal.py -nn <nodes_number>'
+            print(hint)
             sys.exit(2)
     except getopt.GetoptError:
-        print 'kruskal.py -nn <nodes_number>'
+        print(hint)
         sys.exit(2)
     for opt, arg in opts:
         if opt in ('-h', '--help'):
-            print 'kruskal.py -nn <nodes_number>'
+            print(hint)
             sys.exit()
-        elif opt in ("-nn", "--nodes_number"):
+        elif opt in ("-n", "--nodes_number"):
             nodes_cnt = int(arg)
     input_validation(nodes_cnt)
     solve_problem(nodes_cnt)
